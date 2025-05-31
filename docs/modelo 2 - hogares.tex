@@ -1,0 +1,267 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathabx}
+\usepackage{dcolumn}
+\usepackage{geometry}
+\usepackage{breqn}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[spanish,es-lcroman]{babel}
+\decimalpoint
+\usepackage{enumerate}
+\usepackage{nicefrac} 
+\usepackage[most]{tcolorbox}
+\usepackage{tcolorbox} % For solution boxes
+%\decimalpoint
+\setlength\parindent{1.5em}
+\usepackage{enumitem}
+\newcommand*{\QED}{\hfill\ensuremath{\blacksquare}}
+%\usepackage{authblk}
+\selectlanguage{spanish}
+\geometry{letterpaper, margin=1in}
+\pagestyle{headings}
+\usepackage{amsthm} 
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolario}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\theoremstyle{remark}
+\newtheorem*{remark}{Considere}
+\DeclareUnicodeCharacter{2212}{-}
+\usepackage{epigraph}
+\usepackage{xcolor}
+
+\usepackage[natbibapa]{apacite}
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\tcbset{colback=blue!10, 
+    %colframe=green!45!black!20, 
+    colframe=blue!70!black!70, 
+    title=Soluci\'on,
+    fonttitle=\bfseries,  
+    coltitle=white,
+    standard jigsaw, opacityback=50, arc=0mm, breakable} 
+
+\newcommand{\ubar}[1]{\text{\b{$#1$}}}
+ 
+\theoremstyle{definition}
+\newtheorem{definition}{Definici\'on}[section]
+
+\title{\textbf{Propuesta Modelo 2}}
+
+\author{Jhoan Sebasti\'an Fuentes Hern\'andez \and Nicolas Lozano Huertas}
+\date{Mayo, 2025}
+
+\begin{document}
+\maketitle
+
+Construido sobre Acemoglu \& Restrepo (2022) y Baek \& Jeong (2023)
+
+\section{Introducci\'on}
+Se tienen trabajadores con 4 tipos de habilidades: cognitivas, socioemocionales, rutinarias y de juicio, cada una denotada por su inicial. \\
+De esta forma definimos el conjunto de tipos de trabajadores: $G=\{j,s,c,r\}$.\\
+Cada firma debe decidir si una tarea $x$ la realiza con capital o con trabajo humano.
+
+\section{Hogares}
+
+Fun
+
+\section{Firmas}
+
+Las firmas utilizan capital y trabajo para ``producir'' tareas, que posteriormente se utilizan para la producci\'on del bien de cada firma.
+
+\begin{itemize}
+    \item \textbf{Producci\'on de tareas}
+    \begin{align}
+        t(x) =A_{k}\psi_{k}K(x) +A_{r}\psi_{r}l_{r}(x)+A_{s}\psi_{s}l_{s}(x)+A_{j}\psi_{j}l_{j}(x)+A_{c}\psi_{c}l_{c}(x)
+    \end{align}
+    Donde, $A_{f}$ es la productividad general del factor $f$; $\psi_{f}(x)$ es la productividad espec\'ifica del factor $f$ para producir la tarea $x$; $l_{s}(x), \ l_{c}(x), \ l_{j}(x), \ l_{r}(x), \ K(x)$ son las cantidades de cada tipo de trabajador y de capital utilizadas para producit la tarea x.
+    \item \textbf{Funci\'on de producci\'on de la firma:} \\
+    Cada firma i combina una masa $M_i$ del conjunto de todas las tareas $T$ para producir su bien final. Este mercado funciona bajo competencia monopol\'istica.
+    \begin{align*}
+        y_{i} = A_{i} \left[ \frac{1}{M_i} \int_{T} \left( M_{i} \cdot t(x) \right) ^ {\frac{\lambda -1}{\lambda}} dx \right] ^ {\frac{\lambda}{\lambda -1}}
+    \end{align*}
+    $\lambda$ es la elasticidad de sustituci\'on entre tareas.
+    \item \textbf{Costo del capital} \\
+    Asumimos que el capital se produce utilizando el bien final con us costo marginal de $\frac{1}{q(x)}$.
+    \item \textbf{Regla de asignaci\'on} \\
+    Asumimos que para una tarea $x$ siempre se cumple alguna de estas condiciones:
+    \begin{align*}
+        \frac{w_{g}}{A_{g}\psi_{g}(x)} &< \frac{w_{g'}}{A_{g'}\psi_{g'}(x)} \leq \frac{1}{A_{k}\psi_{k}(x)q(x)} \ ; \forall g \neq g'; \ g,g' \in G \\
+        \frac{1}{A_{k}\psi_{k}(x)q(x)} &< \frac{w_{g}}{A_{g}\psi_{g}(x)}; \ g\in G \\
+    \end{align*}
+    De esta forma garantizamos que un factor productivo siempre es m\'as eficiente que el resto para la realizaci\'on de una tarea, lo que asegura que cada tarea es realizada por un solo factor (el de menor costo relativo). Lo que convierte la ecuaci\'on 1 en:
+    \begin{align}
+        t(x) =A_{f}\psi_{f}f(x)
+    \end{align}
+    Donde $f$ es el factor m\'as eficiente para la realizaci\'on de $x$. \\
+
+    Ahora podemos definir los conjuntos $\tau_{f}; \ f \in \{l_{c},l_{r},l_{s},l_{j},K\}$, los cuales contienen las tareas asignadas a cada tipo de trabajo y al capital:
+
+    \begin{align*}
+        \tau_{g}&=\left\{x \middle|  \frac{w_{g}}{A_{g}\psi_{g}(x)} < \frac{w_{g'}}{A_{g'}\psi_{g'}(x)} \leq \frac{1}{A_{k}\psi_{k}(x)q(x)} \right\} \\
+        \tau_{k}&=\left\{x \middle| \frac{1}{A_{k}\psi_{k}(x)q(x)} < \frac{w_{g}}{A_{g}\psi_{g}(x)} \right\}
+    \end{align*}
+    \item \textbf{Factor shares} \\
+    El share para cada tipo de trabajo dentro de la firma i esta dado por:
+    \begin{align*}
+        \Gamma_{gi} = \frac{1}{M_i}\int_{{\tau}_{g}}\left(\psi_g(x)\right)^{\lambda-1}dx
+    \end{align*}
+    El share para el capital dentro de la firma i esta dado por:
+    \begin{align*}
+        \Gamma_{ki} = \frac{1}{M_i}\int_{{\tau}_{k}}\left(\psi_k(x)q(x)\right)^{\lambda-1}dx
+    \end{align*}
+    \item \textbf{Bien final} \\
+    Los bienes que produce cada firma, se utilizan para producir un bien final, utilizando una funci\'on de agregaci\'on tipo CES.
+    \begin{align*}
+        Y=\left(\int_{0}^{1}y_i^{\frac{\eta-1}{\eta}}di\right)^{\frac{\eta}{\eta-1}}
+    \end{align*}
+\end{itemize}
+
+%\section{Hogares}
+%La utilidad del hogar representativo depende de su consumo de un continuo de los bienes finales de cada firma
+ %\begin{align*}
+ %    U = \left(\int_{0}^{1}y_i^{\frac{\eta-1}{\eta}}di\right)^{\frac{\eta}{\eta-1}}
+ %\end{align*}
+
+\section{Problema de la firma}
+\subsection{Bienes Finales}
+Para la producci\'on del bien final $Y$, se compran bienes de las diferentes firmas al precio $p_i$. Se busca producir $Y$ al menor costo posible.
+\begin{align*}
+    \underset{y_i}{min}\int_{0}^{1} p_iy_i di \ \ s.t. \ \ Y=\left(\int_{0}^{1}y_{i}^{\frac{\eta -1}{\eta}}di\right)
+\end{align*}
+
+Formulamos el lagangreano:
+\begin{align*}
+    L = \int_{0}^{1} p_iy_i di + \lambda \left(Y-\int_{0}^{1}y_{i}^{\frac{\eta -1}{\eta}}di\right)
+\end{align*}
+Obtenemos la CPO respecto a $y_i$
+
+\begin{align*}
+    \frac{\partial L}{\partial y_i} = p_{i} - \lambda \frac{\eta}{\eta-1} \left(\int y_{j}^{\frac{\eta-1}{\eta}} dj\right)^{\frac{1}{\eta-1}}y_{i}^{-\frac{1}{\eta}} = 0 
+\end{align*}
+
+\begin{align*}
+    y_i^{\frac{1}{\eta}} = \frac{\lambda}{p_{i}}\frac{\eta}{\eta-1} \left(\int y_{j}^{\frac{\eta-1}{\eta}} dj\right)^{\frac{1}{\eta-1}}
+\end{align*}
+
+\begin{align*}
+    y_i = \lambda^{\eta} p_{i}^{-\eta}\left(\frac{\eta}{\eta-1}\right)^\eta \left(\int y_{j}^{\frac{\eta-1}{\eta}} dj\right)^{\frac{\eta}{\eta-1}}
+\end{align*}
+
+\begin{align*}
+    y_i^{\star} = \lambda^{\eta} p_{i}^{-\eta}\left(\frac{\eta}{\eta-1}\right)^\eta Y
+\end{align*}
+
+\subsection{Bienes Intermedios}
+Dado que cada tarea $x$ la realiza un \'unico factor, definimos el costo marginal de cada tarea como:
+
+\begin{align*}
+    c(x)=\underset{f}{min}\frac{w_f}{A_f\psi_f(x)}
+\end{align*}
+
+El problema de la firma representativa es:
+
+\begin{align*}
+    \underset{t(x)}{min} \int_{T}c(x)t(x)dx \ \ s.t. \ \ \int_{T}t(x)^{\frac{\lambda -1}{\lambda}}dx = M_i \left(\frac{y_i}{A_i}\right)^{\frac{\lambda-1}{\lambda}}
+\end{align*}
+
+Formulamos el lagrangeano:
+
+\begin{align*}
+    L = \int_T c(x)t(x) dx + \mu \left[M_i\left(\frac{y_i}{A_i}\right)^{\frac{\lambda-1}{\lambda}}-\int_{T}t(x)^{\frac{\lambda-1}{\lambda}}dx\right]
+\end{align*}
+
+Derivamos la CPO respecto a $t(x)$
+
+\begin{align*}
+    \frac{\partial L}{\partial t(x)} = c(x)-\mu \frac{\lambda -1}{\lambda}t(x)^{-\frac{1}{\lambda}} =0
+\end{align*}
+
+Despejando para $t(x)$ obtenemos:
+
+\begin{align*}
+    t(x) = \left[\mu\frac{\lambda-1}{\lambda}\right]^{\lambda}c(x)^{-\lambda}
+\end{align*}
+
+Reemplazando este valor en la restricci\'on:
+
+\begin{align*}
+\int_{T}\left[\left[\mu\frac{\lambda-1}{\lambda}\right]^{\lambda}c(x)^{-\lambda}\right]^{\frac{\lambda -1}{\lambda}}dx = M_i \left(\frac{y_i}{A_i}\right)^{\frac{\lambda-1}{\lambda}}
+\end{align*}
+
+\begin{align*}
+\left[\mu\frac{\lambda-1}{\lambda}\right]^{\lambda-1}\int_{T}c(x)^{-(\lambda-1)}dx = M_i \left(\frac{y_i}{A_i}\right)^{\frac{\lambda-1}{\lambda}}
+\end{align*}
+
+\begin{align*}
+\mu \left(\frac{\lambda-1}{\lambda}\right)
+&= 
+\;\Biggl[\,
+\frac{M_i \,\bigl(\frac{y_i}{A_i}\bigr)^{\frac{\lambda-1}{\lambda}}}
+     {\int_{T}c(x)^{-(\lambda-1)}dx}
+\Biggr]^{\frac{1}{\lambda-1}}
+\end{align*}
+
+Ahora hallamos el costo marginal, sabemos que el costo total para la empresa $i$ es:
+\begin{align*}
+    C_i=\int_T c(x)t(x)dx
+\end{align*}
+
+Reemplazamos en esta ecuaci\'on $t(x)$ y $c(x)$:
+
+\begin{align*}
+    C_i=\int_T c(x)^{1-\lambda}\left[\mu\frac{\lambda-1}{\lambda}\right]^{\lambda}dx
+\end{align*}
+
+\begin{align*}
+    C_i=\left[\mu\frac{\lambda-1}{\lambda}\right]^{\lambda}\int_T c(x)^{1-\lambda}dx
+\end{align*}
+
+\begin{align*}
+    C_i=\Biggl[\,
+\frac{M_i \,\bigl(\frac{y_i}{A_i}\bigr)^{\frac{\lambda-1}{\lambda}}}
+     {\int_{T}c(x)^{-(\lambda-1)}dx}
+\Biggr]^{\frac{\lambda}{\lambda-1}}\int_T c(x)^{1-\lambda}dx
+\end{align*}
+
+\begin{align*}
+    C_i=\left[\frac{M_i^{\frac{\lambda}{\lambda-1}}\bigl(\frac{y_i}{A_i}\bigr)}
+     {\left(\int_{T}c(x)^{-(\lambda-1)}dx\right)^{\frac{\lambda}{\lambda-1}}}
+\right]\int_T c(x)^{1-\lambda}dx
+\end{align*}
+
+\begin{align*}
+    C_i=\left[\frac{M_i^{\frac{\lambda}{\lambda-1}}\bigl(\frac{y_i}{A_i}\bigr)}
+     {\left(\int_{T}c(x)^{-(\lambda-1)}dx\right)^{\frac{1}{\lambda-1}}}
+\right]
+\end{align*}
+
+\begin{align*}
+    C_i=\left[\frac{M_i^{\frac{\lambda}{\lambda-1}}}
+     {A_i\left(\int_{T}c(x)^{-(\lambda-1)}dx\right)^{\frac{1}{\lambda-1}}}
+\right]y_i
+\end{align*}
+
+Entonces tenemos un costo unitario de:
+
+\begin{align*}
+    c_i=\frac{M_i^{\frac{\lambda}{\lambda-1}}}
+     {A_i\left(\int_{T}c(x)^{-(\lambda-1)}dx\right)^{\frac{1}{\lambda-1}}}
+\end{align*}
+
+Sabemos que en competencia monopol\'istica con funci\'on de producci\'on utilizando una funci\'on CES esta dado por:
+
+\begin{align*}
+    p_i=\left(\frac{\eta}{\eta -1}\right)\left[\frac{M_i^{\frac{\lambda}{\lambda-1}}}
+     {A_i\left(\int_{T}c(x)^{-(\lambda-1)}dx\right)^{\frac{1}{\lambda-1}}}\right]
+\end{align*}
+
+\end{document}
