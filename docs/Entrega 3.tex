@@ -20,7 +20,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{tcolorbox} % For solution boxes
 %\decimalpoint
-\setlength\parindent{0pt}
+\setlength\parindent{1.5em}
 \usepackage{enumitem}
 \newcommand*{\QED}{\hfill\ensuremath{\blacksquare}}
 %\usepackage{authblk}
@@ -54,13 +54,231 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definici\'on}[section]
 
-\title{\textbf{Macroeconom\'ia Avanzada de Largo Plazo} \\ \textbf{Taller 3 - Parte Grupal}}
+\title{\textbf{Macroeconom\'ia Avanzada de Largo Plazo}}
 
 \author{Jhoan Sebasti\'an Fuentes Hern\'andez \and Nicolas Lozano Huertas}
-\date{2025-10}
+\date{Mayo, 2025}
 
 \begin{document}
 \maketitle
 \vspace{-1 cm}
+
+\begin{abstract}
+    Este trabajo examina el impacto diferencial de la Inteligencia Artificial (IA) sobre los distintos tipos de trabajo y las variables macroeconómicas clave utilizando un modelo DSGE con un continuo de tareas y dos tipos de trabajo heterogéneos derivados empíricamente. Utilizando datos de O*NET y OEWS, identificamos dos clusters de ocupaciones con perfiles distintos de habilidades y actividades. Calibramos el modelo para replicar hechos estilizados de la economía estadounidense y simulamos un shock de IA que aumenta tanto su productividad como su rango de tareas automatizables. Los resultados indican un aumento significativo en el output, capital y consumo agregados, junto con un incremento en la participación del capital en el ingreso nacional. Aunque ambos tipos de trabajo experimentan aumentos en sus salarios reales debido a los efectos de productividad, la redistribución del ingreso favorece al capital, con implicaciones importantes para las políticas de compensación y capacitación laboral.
+\end{abstract}
+
+\newpage
+\section{Introducci\'on}
+
+%% MOTIVACION
+
+El reciente incremento en la disponibilidad y adopci\'on de tecnolog\'ias de inteligencia artificial, ha generado un intenso debate sobre su impacto en el mercado laboral, crecimiento y desarrollo econ\'omico. Profesiones que hace algunos años se creían imposibles de ser reemplazadas, su futuro hoy es incierto, gracias al surgimiento de la inteligencia artificial generativa. A pesar de estos nuevos paradigmas y de la incertidumbre existente, la historia ha mostrado la existencia de patrones en la adopci\'on de tecnologías con la capacidad de automatizar el trabajo humano, en este documento constuiremos un modelo econ\'omico que nos permita explicar algunas de estas din\'amicas.
+
+Autor, Levy y Murnane (2003) a trav\'es de un an\'alisis empirico muestran que la adopci\'on de computadores sustituye tareas rutinarias, cognitivas-manuales, con reglas detalladas para su elaboraci\'on, mientras que complementan al trabajo humano en tareas cognitivas-complejas, no rutinarias y en las cuales se necesita un alto grado de habilidades socioemocionales. A partir de esta tendencia surgen un gran n\'umero de tensiones entre agentes econ\'omicos, y el contexto bajo el cual estos toman decisiones cambia dr\'asticamente. Las firmas deben elegir cuales tareas asignar al trabajo humano y cuales asignar al capital, esta decisi\'on depende de los costos (salarios, tasa de interés) de cada factor, de su productividad para desempeñar una misma tarea, y a su vez de las preferencias tanto de individuos como firmas y si el mercado se adapta a la ausencia del ``factor humano'' especialmente en tareas intensivas en habilidades socioemocionales. Por su parte trabajadores jóvenes deben decidir en que especializarse, teniendo en cuenta las decisiones que están tomando las firmas; trabajadores m\'as experimentados deben evaluar el riesgo de ser sustituidos, decidir si formarse en otras habilidades para evitar ser desplazdos o buscar empresas alejadas de la frontera tecnol\'ogica, teniendo en cuenta que su empleo sigue en riesgo. Finalmente surgen dilemas \'eticos y morales: ¿La inteligencia artificial deber\'ia ocupar tareas en las que se toman decisiones que afectan la vida de millones de personas?, ¿C\'omo ayudamos como sociedad a las personas que están siendo desplazadas?
+
+Como se evidencia, a partir de una simple observaci\'on emp\'irica surge un problema con un gran n\'umero de dimensiones. El modelo propuesto en este art\'iculo se centrar\'a en tratar de mostrar las implicaciones que tiene sobre el mercado laboral los p\'atrones de automatizaci\'on evidentes empíricamente, específicamente nuestro modelo busca responder las siguientes preguntas: ¿C\'omo cambia la repartici\'on de tareas entre tabajo y capital ante un choque de automatizaci\'on (ej. disponibilidad de una nueva tecnolog\'ia)?, ¿C\'omo se ven afectados los salarios de trabajadores con diferentes habilidades?, ¿Qu\'e papel juega la elasticidad de sustituci\'on intertareas?, ¿La automatizaci\'on es una fuente de crecimiento econ\'omico?
+
+%% DESCRIPCION RESULTADOS
+
+%% SUPUESTOS PRINCIPALES
+
+
+%% VALOR AGREGADO 1
+
+%% VALOR AGREGADO 2
+
+\section{Descripci\'on del modelo}
+Para responder la pregunta de investigaci\'on se desarrollo un modelo din\'amico de equilibrio general (DSGE) con fundamentos microecon\'omicos s\'olidos. El modelo integra una estructura productiva basada en tareas y heterogeneidad laboral fundamentada en datos para Estados Unidos. A continuaci\'on se presenta la estructura general del modelo, las decisiones que toma cada agente y las ecuaciones principales. Para ver la derivaci\'on detallada del modelo diríjase al Apendice ??.
+
+\subsection{Hogares}
+Los hogares se modelan a partir de un hogar representativo que resuelve el siguiente problema de maximizaci\'on de utilidad intertemporal:
+
+\begin{align*}
+    \max_{\{C_t, K_{t+1}\}_{t=0}^{\infty}} \mathbb{E}_0 \left[ \sum_{t=0}^{\infty} \beta^t \frac{C_t^{1-\sigma}}{1-\sigma} \right] \quad s.a. \quad C_t + K_{t+1} = (1+r_t-\delta)K_t + w_{0t}L_0 + w_{1t}L_1 + \Pi_t
+\end{align*}
+
+Donde $\mathbb{E}_0$ es la esperanza de los flujos futuros descontados de utilidad, condicional a la informaci\'on disponible en el presente. $\beta$ representa el factor de descuento, siendo de esta manera una medici\'on de la impaciencia de los hogares. $\sigma > 0$ es el coeficiente de aversi\'on relativa al riego, capturando el grado en que la utilidad marginal decrece con el nivel de consumo y la elasticidad de sustituci\'on intertemporal del consumo ($1/\sigma$). $C_t$ simplemente denota el nivel de consumo en cada periodo.
+
+Asumimos que los hogares ofrecen dos tipos de trabajo $L_0$ y $L_1$, con salarios $w_{0t}$ y $w_{1t}$ respectivamente. Estos tipos de trabajo corresponden a los dos clusters identificados a partir de los datos. Asumimos que la oferta de ambos tipos de trabajo es inel\'astica y constante. A su vez, suponemos que $L_0 +L_1 =1$, permitiendo que $L_0, \ L_1$ se interpreten como las participaciones relativas de cada tipo de trabajo en la fuerza laboral agregada.
+
+Adem\'as del trabajo, los hogares son dueños y por ende ofrecen el stock de capital fisico de la econom\'ia $K_t$ a una tasa de retorno $r_t$. Cada periodo el stock se deprecia a una tasa $\delta$.
+
+Al resolver el problema del hogar se obtiene la siguiente ecuaci\'on de \ref{eq:euler}.
+
+\begin{align*}
+    \tag{Euler}
+    \frac{C_{t+1}}{C_t} = \left[ \beta(1+r_{t+1}-\delta) \right]^{1/\sigma}
+    \label{eq:euler}
+\end{align*}
+
+Intuitivamente, la ecuaci\'on de \ref{eq:euler} muestra que mayores retornos al capital incetiva a los hogares a sacrificar consumo presente por consumo futuro (su dinero ahora rinde m\'as al invertirlo en capital), mientras que mayor aversi\'on al riesgo reduce la dispocisi\'on a realizar ests sustituci\'on.
+
+En estado estacionario, las variables agregadas se mantienen constantes ($C_{t} = C_{t+1}$) y por ende \ref{eq:euler} implica que:
+
+\begin{align*}
+  r_{ss} = \frac{1}{\beta} - 1 + \delta
+\end{align*}
+
+\subsection{Firmas}
+Para modelar el sector productivo utilizamos como referencia los art\'iculos de Acemoglu \& Restrepo (2018, 2019 \& 2022), los cuales utilizan un enfoque basado en tareas. Esta estructura permite analizar como la IA puede afectar la asignaci\'on de diferentes tareas entre capital y los diferentes tipos de trabajo.
+
+\subsubsection{Producci\'on del bien final}
+
+La econom\'ia produce un \'unico bien final combinando las cantidades de un continuo de tareas indexadas ppor $x \in [0,1]$ a través de una funci\'on de agregaci\'on tipo CES:
+
+\begin{align*}
+    Y_t = \left( \int_0^1 y_t(x)^{\frac{\lambda-1}{\lambda}} dx \right)^{\frac{\lambda}{\lambda-1}}
+\end{align*}
+
+donde $y_t(x)$ es la cantidad producida de la tarea $x$ en el período $t$, y $\lambda > 0$ es la elasticidad de sustitución entre tareas diferentes. Este parámetro captura el grado en que diferentes tareas pueden sustituirse entre sí en el proceso productivo.
+
+El supuesto más común en la literatura, y el que adoptamos aquí, es $\lambda > 1$, indicando que las tareas son sustitutos imperfectos pero con una elasticidad de sustitución mayor que la unidad.
+
+El productor del bien final busca maximizar sus beneficios sujeto a su funci\'on de producci\'on y tomando el precios de cada tarea como dado.
+
+\begin{align*}
+    \max_{y_t(x)} P_t Y_t - \int_0^1 p_t(x) y_t(x) dx
+\end{align*}
+
+En adelante, por simplicidad normalizaremos el precio del bien final a 1, $P_t=1$.
+
+Como las tareas se producen bajo competencia perfecta. El precio de cada una de ellas debe igualar su productividad marginal, esto es:
+
+\begin{align*}
+    \frac{\partial Y_t}{\partial y_t(x)} = Y_t^{\frac{\lambda-1}{\lambda}} \cdot y_t(x)^{-\frac{1}{\lambda}} = p_t(x)
+\end{align*}
+
+Despejando para $y_t(x)$ obtenemos la demanda de cada tarea:
+
+\begin{align*}
+    \tag{Demanda Tarea x}
+    y_t(x)  = Y_t \left( \frac{1}{p_t(x)} \right)^{\lambda}
+    \label{eq:damanda_tarea}
+\end{align*}
+
+\subsubsection{Producci\'on de tareas}
+
+Cada tarea $x$ puede ser realizada potencialmente por tres factores de producción diferentes: trabajo de tipo 0 ($L_0$), trabajo de tipo 1 ($L_1$), o capital/IA ($K$). La tecnología de producción para cada tarea $x$ utilizando el factor $g \in \{0, 1, k\}$ es:
+
+\begin{align*}
+    y_t^g(x) = A_g \psi_g(x) l_{gt}(x)
+\end{align*}
+
+donde:
+\begin{itemize}
+    \item $A_g > 0$ es un parámetro de productividad específico del factor $g$, que captura la eficiencia general con la que ese factor realiza tareas.
+    \item $\psi_g(x) \geq 0$ es un parámetro de productividad específico de la tarea $x$ para el factor $g$, que refleja la ventaja comparativa de ese factor en esa tarea particular.
+    \item $l_{gt}(x)$ es la cantidad del factor $g$ asignada a la tarea $x$ en el período $t$. Para los factores trabajo, esto corresponde a las horas o esfuerzo dedicado; para el capital/IA, corresponde a las unidades de capital o capacidad computacional asignadas.
+\end{itemize}
+
+Para mantener la tratabilidad analítica, adoptamos una simplificación: asumimos que $\psi_g(x) \in \{0, 1\}$, es decir, cada factor puede realizar una tarea perfectamente ($\psi_g(x) = 1$) o no puede realizarla en absoluto ($\psi_g(x) = 0$).
+
+Las empresas operan en un entorno de competencia perfecta, donde buscan minimizar el costo de producir cada tarea. El costo unitario de producir una unidad de la tarea $x$ utilizando el factor $g \in \{0, 1, k\}$ es:
+
+\begin{align*}
+    c_{gt}(x) = \frac{p_{gt}}{A_g \psi_g(x)}
+    \label{eq:costo_unitario_tarea}
+\end{align*}
+
+donde es el precio unitario del factor $g$. por ejemplo para $g=0$, $p_{gt}=w_{0t}$.
+
+Para cada tarea $x$, las empresas eligen el factor que minimiza el costo unitario:
+
+\begin{align*}
+    c_t(x) = \min_{g \in \{0, 1, k\}} \left\{ \frac{p_{gt}}{A_g \psi_g(x)} \right\}
+\end{align*}
+
+Podemos entonces reescribir la \ref{eq:damanda_tarea} como:
+
+\begin{align*}
+    \tag{Demanda Tarea x}
+    y_t(x)  = Y_t \left( \frac{1}{c_t(x)} \right)^{\lambda}
+    \label{eq:damanda_tarea}
+\end{align*}
+
+A partir de estas difiniciones podemos definir el conjunto de tareas asignadas al factor $g$ en el periodo $t$ ($I_{gt}$):
+
+\begin{align*}
+    I_{gt} = \left\{ x \in [0,1] \, | \, c_{gt}(x) = \min_{g' \in \{0, 1, k\}} \{c_{g't}(x)\} \right\}
+\end{align*}
+
+Finalmente, Denotamos por $\Gamma_{gt}$ las ``cuotas de tarea'' de cada factor, es decir, la proporción del continuo de tareas efectivamente asignadas a cada factor en el equilibrio. Por construcción, $\Gamma_{0t} + \Gamma_{1t} + \Gamma_{kt} = 1$ para todo $t$. del conjunto $I_{gt}$:
+
+\begin{align*}
+    \Gamma_{gt} = \int_{I_{gt}} dx
+\end{align*}
+
+\subsection{Equilibrio}
+Asumiendo que tanto como los hogares como las firmas son precio aceptantes y escogieron las asignaciones de consumo y factores \'optimas, a conitnuaci\'on se expresan las ecuaciones que garantizan el vaciado de los mercados y el precio de los factores en equilibrio y bajo competencia perfecta.
+
+\subsubsection{Mercados de bienes}
+$$Y_t=C_t + K_{t+1} - (1-\delta)K_t$$
+
+\subsubsection{Mercado de factores}
+\begin{align*}
+    L_{0t}^d = Y_t \frac{A_0^{\lambda-1}}{w_{0t}^{\lambda}} \Gamma_{0t} \quad ; \quad
+    L_{1t}^d = Y_t \frac{A_1^{\lambda-1}}{w_{1t}^{\lambda}} \Gamma_{1t} \quad ; \quad
+    K_t^d =  Y_t \frac{A_k^{\lambda-1}}{R_t^{\lambda}} \Gamma_{kt}
+\end{align*}
+
+\subsubsection{Precio de los factores}
+
+\begin{align*}
+    w_{0t} = Y_t \cdot \left( \frac{A_0 \Gamma_{0t}^{\frac{1}{\lambda}}}{Y_t} \right)^{\frac{\lambda-1}{\lambda}} \cdot L_0^{-\frac{1}{\lambda}} \quad ;  \quad 
+    w_{1t} = Y_t \cdot \left( \frac{A_1 \Gamma_{1t}^{\frac{1}{\lambda}}}{Y_t} \right)^{\frac{\lambda-1}{\lambda}} \cdot L_1^{-\frac{1}{\lambda}} \quad ; \quad
+    R_t = Y_t \cdot \left( \frac{A_k \Gamma_{kt}^{\frac{1}{\lambda}}}{Y_t} \right)^{\frac{\lambda-1}{\lambda}} \cdot K_t^{-\frac{1}{\lambda}}
+    \label{eq:retorno_capital}
+\end{align*}
+
+\section{Resultados}
+
+\subsection{Resultados del modelo te\'orico}
+\subsubsection{Distribuci\'on del ingreso}
+
+El impacto distributivo de los avances en IA puede analizarse a través de las participaciones factoriales en el ingreso:
+
+\begin{align*}
+    s_{K,ss} = (A_k)^{\lambda-1} \Gamma_{k,ss}
+\end{align*}
+
+Aqu\'i es f\'acil ver que un aumento en la productividad del capital (IA) o en la proporic\'on de tareas asignada al capital (IA) en estado estacionario, aumenta la remuneraci\'on a este factor. Dado que la suma de las proporciones de tareas asignadas a cada factor debe sumar uno, si $\Gamma_k$ aumenta, esto se debe ver compensado por una disminuci\'on en las proporciones de tareas asignadas a los otros factores y por ende en su participaci\'on en el ingreso total.
+
+\subsubsection{Salarios Reales}
+
+El impacto de la IA sobre los salarios reales es más complejo y depende de dos efectos contrapuestos:
+
+\begin{enumerate}
+    \item \textbf{Efecto desplazamiento:} La IA desplaza trabajo humano de algunas tareas, reduciendo la demanda de trabajo y ejerciendo presión a la baja sobre los salarios.
+    
+    \item \textbf{Efecto productividad:} La IA aumenta la productividad agregada de la economía, lo que incrementa el output total y puede elevar los salarios reales si el aumento en la ``torta económica'' es suficientemente grande.
+\end{enumerate}
+
+Formalmente, los salarios reales en estado estacionario son:
+
+\begin{align*}
+    w_{0,ss} &= Y_{ss} \cdot \left( \frac{A_0 \Gamma_{0,ss}^{\frac{1}{\lambda}}}{Y_{ss}} \right)^{\frac{\lambda-1}{\lambda}} \cdot L_0^{-\frac{1}{\lambda}} \\
+    w_{1,ss} &= Y_{ss} \cdot \left( \frac{A_1 \Gamma_{1,ss}^{\frac{1}{\lambda}}}{Y_{ss}} \right)^{\frac{\lambda-1}{\lambda}} \cdot L_1^{-\frac{1}{\lambda}}
+\end{align*}
+
+Un avance en IA aumenta $Y_{ss}$ (efecto positivo) pero reduce $\Gamma_{0,ss}$ y $\Gamma_{1,ss}$ (efecto negativo). El efecto neto depende de la magnitud relativa de estos cambios. 
+
+En nuestra simulación contrafactual, encontraremos que el efecto productividad domina, llevando a un aumento en los salarios reales de ambos tipos de trabajo a pesar de la reducción en sus participaciones en el ingreso.
+
+\subsubsection{Desigualdad}
+
+El impacto de la IA sobre la desigualdad salarial entre los dos tipos de trabajo puede analizarse mediante el salario relativo:
+
+\begin{align*}
+    \frac{w_{1,ss}}{w_{0,ss}} = \left( \frac{A_1}{A_0} \right)^{\frac{\lambda-1}{\lambda}} \left( \frac{\Gamma_{1,ss}}{\Gamma_{0,ss}} \right)^{\frac{1}{\lambda}} \left( \frac{L_0}{L_1} \right)^{\frac{1}{\lambda}}
+\end{align*}
+
+Si el avance en IA afecta desproporcionadamente a un tipo de trabajo en términos de las tareas que puede realizar (es decir, si el cambio en $\Gamma_1/\Gamma_0$ no es neutro), entonces habrá un efecto sobre la desigualdad salarial. Por ejemplo, si la IA sustituye principalmente tareas realizadas por el trabajo tipo 0, entonces $\Gamma_1/\Gamma_0$ aumentará, incrementando el salario relativo del tipo 1.
+
+\subsection{Calibraci\'on y Est\'atica comparativa}
+Partiendo de los datos disponibles para Estados Unidos, y utilizando un An\'alisis de Componentes Principales junto con un algoritmo de clustering. Se identificaron dos clusters de ocupaciones. El primero de ellos agrupando ocupaciones que requieren de destreza, colaboraci\'on, comunicaci\'on y habilidades de resoluci\'on de problemas. El segundo, agrupa principalmente ocupaciones intensivas en habilidades de g\'estion de informaci\'on compleja, estrategia, tomas de desiciones y comunicaci\'on.
+
+\section{Limitaciones}
+
+\section{Conclusi\'on}
 
 \end{document}
